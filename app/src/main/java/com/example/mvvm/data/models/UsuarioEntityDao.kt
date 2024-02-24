@@ -18,5 +18,5 @@ interface UsuarioEntityDao {
     @Query("Select * from usuarios where username = :username ")
     fun getForUsernameAndPassword(username:String) : UsuarioEntity?
 
-
+    //ad
 }
