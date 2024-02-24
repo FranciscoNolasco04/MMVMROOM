@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group>
+        <item android:id="@+id/nav_item_one"
+            android:icon="@drawable/icon_home"
+            android:title="INICIO"/>
+
+        <item android:id="@+id/nav_item_two"
+            android:icon="@drawable/icon_libros"
+            android:title="LIBROS"/>
+
+        <item android:id="@+id/nav_item_three"
+            android:icon="@drawable/icon_like"
+            android:title="MIS FAVORITOS"/>
+    </group>
+
+    <item>
+        <menu>
+            <item android:id="@+id/nav_configuracion"
+                android:icon="@drawable/icon_configuracion"
+                android:title="Configuración"/>
+
+            <item android:id="@+id/nav_perfil"
+                android:icon="@drawable/icon_person"
+                android:title="Perfil"/>
+            <item android:id="@+id/nav_sesion"
+                android:icon="@drawable/icon_cerrar_sesion"
+                android:title="Cerrar Sesion"/>
+        </menu>
+    </item>
+</menu>

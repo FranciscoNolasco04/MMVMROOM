@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <!-- Otros atributos del tema -->
+        <item name="bottomNavigationStyle">@style/Widget.MyApp.BottomNavigationView</item>
+    </style>
+
+    <style name="Widget.MyApp.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="android:background">@color/azulOscuro</item>
+        <item name="android:elevation">0dp</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+
+</resources>

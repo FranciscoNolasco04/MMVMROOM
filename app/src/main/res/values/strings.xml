@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">BookCraze</string>
+    <string name="navigation_drawer_open">Open</string>
+    <string name="navigation_drawer_close">Close</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="preferencias_fichero_login">preferenciasAppLibros</string>
+    <string name="preferencias_username">preferenciasUsername</string>
+    <string name="preferencias_is_logeado">isLogin</string>
+</resources>

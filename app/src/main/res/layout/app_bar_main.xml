@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.MainActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:itemIconTint="@color/white"
+        android:fitsSystemWindows="true">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_main"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/azulOscuro"
+            android:textAlignment="center"
+            app:titleTextColor="@color/white"
+            app:layout_scrollFlags="scroll|enterAlways">
+            <TextView
+                android:id="@+id/custom_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Inicio"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:layout_marginLeft="30dp"
+                android:fontFamily="@font/acme" />
+
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

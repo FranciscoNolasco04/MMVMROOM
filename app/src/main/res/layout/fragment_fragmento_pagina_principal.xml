@@ -1,0 +1,30 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".fragmentos.FragmentoPaginaPrincipal">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:text="Bienvenido a BookCraze, tu destino para explorar el mundo fascinante de los libros. En BookCraze, nos apasiona compartir historias, conocimientos y aventuras a través de la magia de la lectura. Descubre tu próxima lectura favorita con nosotros."
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/logo"
+                android:contentDescription="Logo de BookCraze" />
+        </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".repositorios.Registro"
+    android:background="@drawable/degradado">
+
+    <LinearLayout
+        android:layout_width="369dp"
+        android:layout_height="wrap_content"
+        android:minHeight="528dp"
+        android:background="@drawable/bordes"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/txt_regisstro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:gravity="center"
+            android:text="CREAR CUENTA"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutNombre"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:backgroundTint="#FF0000"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="#ff33b5e5"
+                app:boxStrokeErrorColor="#FF0000"
+                app:errorTextColor="#FF0000"
+                app:hintEnabled="true"
+                app:hintTextColor="#ff33b5e5">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_nombre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nombre"
+                    android:maxLines="1"
+                    android:textColor="@color/black" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutApellidos"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:backgroundTint="#FF0000"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="#ff33b5e5"
+                app:boxStrokeErrorColor="#FF0000"
+                app:errorTextColor="#FF0000"
+                app:hintEnabled="true"
+                app:hintTextColor="#ff33b5e5">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_apellidos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Apellidos"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:textColor="@color/black" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutUsuario"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:backgroundTint="#FF0000"
+            android:textColorHint="@color/black"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="#ff33b5e5"
+            app:boxStrokeErrorColor="#FF0000"
+            app:errorTextColor="#FF0000"
+            app:hintEnabled="true"
+            app:hintTextColor="#ff33b5e5">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_nombre_usuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nombre de Usuario"
+                android:inputType="text"
+                android:maxLines="1"
+                android:textColor="@color/black" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutContrasenna"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:backgroundTint="#FF0000"
+            android:textColorHint="@color/black"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="#ff33b5e5"
+            app:boxStrokeErrorColor="#FF0000"
+            app:errorTextColor="#FF0000"
+            app:hintEnabled="true"
+            app:hintTextColor="#ff33b5e5">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_contrasenna"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Contraseña"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:textColor="@color/black" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutRepetirContrasenna"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:backgroundTint="#FF0000"
+            android:textColorHint="@color/black"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="#ff33b5e5"
+            app:boxStrokeErrorColor="#FF0000"
+            app:errorTextColor="#FF0000"
+            app:hintEnabled="true"
+            app:hintTextColor="#ff33b5e5">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_repeat_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Confirmar contraseña"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:textColor="@color/black" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_crear"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="90dp"
+                android:layout_marginRight="90dp"
+                android:elevation="8dp"
+                android:radius="0dp"
+                android:text="CREAR"
+                android:textColor="@color/white"
+                app:backgroundTint="#0044d0" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/montserrat_bold"
+                android:gravity="center"
+                android:text="YA TENGO UNA CUENTA"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
