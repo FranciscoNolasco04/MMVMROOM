@@ -1,9 +1,12 @@
-package com.example.mvvm.data.models
+package com.example.mvvm.data.dao
 
+import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.example.mvvm.data.models.UsuarioEntity
 
+@Dao
 interface UsuarioEntityDao {
 
     @Query("Select * from usuarios")
@@ -16,7 +19,6 @@ interface UsuarioEntityDao {
     fun insertUser(usuarioEntity: UsuarioEntity)
 
     @Query("Select * from usuarios where username = :username ")
-    fun getForUsernameAndPassword(username:String) : UsuarioEntity?
+    fun getForUsername(username:String) : UsuarioEntity?
 
-    //ad
 }

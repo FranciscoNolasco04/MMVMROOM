@@ -65,11 +65,13 @@ dependencies {
     implementation("androidx.fragment:fragment-ktx:1.3.2")
     // Facilita mvvm en el Activity
     implementation("androidx.activity:activity-ktx:1.2.2")
-    implementation ("com.google.dagger:hilt-android:2.50")
-    kapt("com.google.dagger:hilt-compiler:2.50")
-    implementation("androidx.room:room-runtime:2.4.1")
-    implementation("androidx.room:room-ktx:2.4.1")
-    kapt("androidx.room:room-compiler:2.4.1")
+    //ROOM
+     implementation("androidx.room:room-runtime:2.4.2")
+     kapt("androidx.room:room-compiler:2.4.2")
+     implementation("androidx.room:room-ktx:2.4.2")
+    // HILT
+     implementation ("com.google.dagger:hilt-android:2.50")
+     kapt ("com.google.dagger:hilt-compiler:2.50")
 
 
 }

@@ -3,18 +3,28 @@ package com.example.mvvm.ui.logueo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.content.Intent
-import com.example.mvvm.data.models.Username
+import androidx.room.ColumnInfo
 import com.example.mvvm.data.models.Usernames
+import com.example.mvvm.data.models.UsuarioEntity
+import com.example.mvvm.data.dao.UsuarioEntityDao
+import com.example.mvvm.data.database.UsuarioEntityDataBase
 import com.example.mvvm.databinding.ActivityRegistroBinding
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class Registro : AppCompatActivity() {
     private lateinit var binding: ActivityRegistroBinding
     private val usuarios = Usernames.userList
+    private lateinit var usuarioDao : UsuarioEntityDao;
+    private lateinit var db : UsuarioEntityDataBase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegistroBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        db = UsuarioEntityDataBase.getDatabase(applicationContext)
+        usuarioDao = db.usuarioEntityDao()
 
         binding.btnCrear.setOnClickListener {
             crearUsuario()
@@ -102,15 +112,19 @@ class Registro : AppCompatActivity() {
         if (!validarCampos()) {
             return
         }
-        val nuevoUsuario = Username(
-            binding.edtNombre.text.toString(),
-            binding.edtApellidos.text.toString(),
-            binding.edtNombreUsuario.text.toString().trim(),
-            binding.edtContrasenna.text.toString()
-        )
-        usuarios.add(nuevoUsuario)
+        val nombre = binding.edtNombre.text.toString()
+        val apellidos =binding.edtApellidos.text.toString()
+        val username =binding.edtNombreUsuario.text.toString().trim()
+        val password =binding.edtContrasenna.text.toString()
 
-        startActivity(Intent(this, Login::class.java))
+        GlobalScope.launch {
+            val nuevoUsuario = UsuarioEntity(name = nombre, secondname = apellidos,username = username, password = password)
+
+            usuarioDao.insertUser(nuevoUsuario)
+
+            startActivity(Intent(this@Registro, Login::class.java))
+        }
+
         //Animatoo.animateSwipeLeft(this)
     }
 }
