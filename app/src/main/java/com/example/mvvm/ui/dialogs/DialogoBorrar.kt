@@ -18,13 +18,10 @@ class DialogoBorrar : DialogFragment {
     private lateinit var repositoryDao: BookRepositoryDao
     private lateinit var bookModelView: BookModelView
 
-    constructor() : super() {
-        // Constructor primario vacío
-    }
+    constructor() : super() {}
 
     constructor(repositoryDao: BookRepositoryDao, bookModelView: BookModelView) : super() {
         this.repositoryDao = repositoryDao
-
         this.bookModelView = bookModelView
     }
 
@@ -40,11 +37,7 @@ class DialogoBorrar : DialogFragment {
         builder.setView(view)
             .setPositiveButton("Aceptar") { dialog, id ->
                 if (position != -1) {
-                    // Al borrar el elemento, notificamos al RecyclerView
-                    bookModelView.deleteBook(position,repositoryDao) //FORMA 1
-                    //repositoryDao.deleteItem(position)//FORMA 2
-
-                    Toast.makeText(context, "Se ha borrado correctamente", Toast.LENGTH_SHORT).show()
+                    bookModelView.deleteBook(position,repositoryDao)
                 }
             }
             .setNegativeButton("Cancelar") { dialog, id ->

@@ -2,25 +2,22 @@ package com.example.mvvm.ui.adapter
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.mvvm.data.models.Book
 import com.example.mvvm.data.models.BookRepositoryDao
+import com.example.mvvm.data.service.BookService
 import com.example.mvvm.databinding.ItemHotelBinding
 import com.example.mvvm.ui.dialogs.DialogoBorrar
-import com.example.mvvm.ui.BookModel.BookModelView
 import com.example.mvvm.ui.MainActivity
 import com.example.mvvm.ui.dialogs.DialogoEditar
-import com.example.mvvm.ui.fragments.FragmentoLista
 
 class ViewBook(
-    view: View
+    view: View,
 ) : RecyclerView.ViewHolder(view) {
 
     private var mainActivity: MainActivity
     private var repositoryDao: BookRepositoryDao
-
     var binding: ItemHotelBinding
 
     init {
@@ -31,11 +28,11 @@ class ViewBook(
     }
 
     fun renderize(book: Book) {
-        binding.nameTextView.text = book.name
-        binding.cityTextView.text = book.edad
+        binding.nameTextView.text = book.nombre
+        binding.cityTextView.text = book.descripcion
 
         Glide.with(itemView.context)
-            .load(book.image)
+            .load(book.imagen)
             .centerCrop()
             .into(binding.iconImageView)
 
@@ -68,7 +65,8 @@ class ViewBook(
 
 
         binding.btnLike.setOnClickListener {
-            // Puedes agregar aquí la lógica para manejar el botón Like si es necesario
         }
     }
+
+
 }

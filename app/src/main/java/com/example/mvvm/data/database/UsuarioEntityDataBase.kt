@@ -7,7 +7,10 @@ import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.mvvm.data.dao.UsuarioEntityDao
 import com.example.mvvm.data.models.UsuarioEntity
-
+/*
+* Creado por Francisco Nolasco
+* Año 2023 | 2024
+* */
 @Database(entities = [UsuarioEntity::class], version = 1, exportSchema = false)
 abstract class UsuarioEntityDataBase : RoomDatabase() {
     abstract fun usuarioEntityDao(): UsuarioEntityDao

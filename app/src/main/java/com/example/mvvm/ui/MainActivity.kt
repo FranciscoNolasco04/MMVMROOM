@@ -1,6 +1,7 @@
 package com.example.mvvm.ui
 
 
+import android.app.Activity
 import android.content.res.Configuration
 import android.os.Bundle
 import android.view.MenuItem
@@ -20,13 +21,22 @@ import com.google.android.material.navigation.NavigationView
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.graphics.Bitmap
+import android.provider.MediaStore
+import android.util.Base64
+import android.webkit.MimeTypeMap
+import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.Toast
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
-import androidx.core.content.ContentProviderCompat.requireContext
-import androidx.fragment.app.viewModels
+import com.example.mvvm.data.MyApplication
 import com.example.mvvm.data.models.BookRepositoryDao
+import com.example.mvvm.data.service.BookService
 import com.example.mvvm.ui.BookModel.BookModelView
 import com.example.mvvm.ui.logueo.Login
+import java.io.ByteArrayOutputStream
 
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -37,7 +47,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private lateinit var framelayout: FrameLayout
     private lateinit var shared : SharedPreferences;
     private  var bookRepositoryDao: BookRepositoryDao = BookRepositoryDao()
+    var context = this
     val bookViewModel: BookModelView by viewModels()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,6 +61,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         shared = this.getSharedPreferences(ficheroPreferencias, Context.MODE_PRIVATE);
 
         val username = shared.getString("preferenciasUsername","usuario no encontrado");
+        var token = shared.getString("preferenciasToken","NO TOKEN");
+        val imagen = shared.getString("preferenciasImagen","NO IMAGEN");
+        val id = shared.getString(" preferenciasIdUsuario","NO ID");
+        Toast.makeText(this,token,Toast.LENGTH_LONG)
+
 
 
 
@@ -143,7 +160,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 startActivity(intent)
             }
             R.id.nav_perfil -> {
-                val toast = Toast.makeText(this, R.string.preferencias_username,1) // in Activity
+                val toast = Toast.makeText(this, R.string.preferencias_username,Toast.LENGTH_LONG) // in Activity
                 toast.show()
             }
         }

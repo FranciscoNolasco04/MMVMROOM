@@ -1,12 +1,15 @@
 package com.example.mvvm.data.models
-
-class Book (
-    var name: String,
-    var edad: String,
-    var image: String
-)
-{
-    override fun toString(): String {
-        return "Book(name='$name', creador='$edad', image='$image')"
-    }
+/*
+* Creado por Francisco Nolasco
+* Año 2023 | 2024
+* */
+data class Book(
+    val id: String,
+    val id_usuario: String,
+    val nombre: String,
+    val descripcion: String,
+    var imagen: String?
+){
+    constructor(id_usuario: String, nombre: String, descripcion: String, imagen: String?) :
+            this("0", id_usuario, nombre, descripcion, imagen)
 }

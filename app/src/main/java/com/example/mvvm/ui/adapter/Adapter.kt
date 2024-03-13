@@ -13,21 +13,23 @@ class Adapter(
 
 ) : RecyclerView.Adapter<ViewBook>(){
     var repositorioBooks: List<Book> = Repository.books
+
+    fun setData(newData: List<Book>) {
+        repositorioBooks = newData
+        notifyDataSetChanged()
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewBook {
         val layoutInflater = LayoutInflater.from(parent. context)
         val layoutItemHotel = R.layout. item_hotel
         return ViewBook(
             layoutInflater.inflate(layoutItemHotel, parent, false)
-
         )
-
     }
 
     override fun onBindViewHolder(holder: ViewBook, position: Int) {
         holder.renderize( repositorioBooks.get(position))
-
     }
-
 
     override fun getItemCount(): Int = repositorioBooks.size
 }

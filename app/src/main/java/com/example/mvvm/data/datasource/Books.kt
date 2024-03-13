@@ -1,10 +1,12 @@
 package com.example.mvvm.data.datasource
 
-import com.example.mvvm.data.models.Book
-
+/*
+* Creado por Francisco Nolasco
+* Año 2023 | 2024
+* */
 
 object Books {
-    val listHotels : List<Book> = listOf(
+    /*val listHotels : List<Book> = listOf(
         Book(
             "Stephen King" ,
             "+12",
@@ -25,5 +27,5 @@ object Books {
             "+8",
             "https://saposyprincesas.elmundo.es/wp-content/uploads/2016/10/cole-de-locos-1.jpg"
         )
-    )
+    )*/
 }

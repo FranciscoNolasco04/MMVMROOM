@@ -6,5 +6,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="preferencias_fichero_login">preferenciasAppLibros</string>
     <string name="preferencias_username">preferenciasUsername</string>
+    <string name="preferencias_token">preferenciasToken</string>
+    <string name="preferencias_id_usuario">preferenciasIdUsuario</string>
+    <string name="preferencias_imagen">preferenciasImagen</string>
     <string name="preferencias_is_logeado">isLogin</string>
 </resources>

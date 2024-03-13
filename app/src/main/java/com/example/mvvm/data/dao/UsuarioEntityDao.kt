@@ -5,7 +5,10 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.mvvm.data.models.UsuarioEntity
-
+/*
+* Creado por Francisco Nolasco
+* Año 2023 | 2024
+* */
 @Dao
 interface UsuarioEntityDao {
 

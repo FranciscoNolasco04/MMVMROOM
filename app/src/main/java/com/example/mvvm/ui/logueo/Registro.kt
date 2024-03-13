@@ -3,13 +3,21 @@ package com.example.mvvm.ui.logueo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.content.Intent
+import android.content.SharedPreferences
+import android.widget.Toast
+import androidx.activity.viewModels
+import androidx.core.view.isVisible
 import androidx.room.ColumnInfo
 import com.example.mvvm.data.models.Usernames
 import com.example.mvvm.data.models.UsuarioEntity
 import com.example.mvvm.data.dao.UsuarioEntityDao
 import com.example.mvvm.data.database.UsuarioEntityDataBase
 import com.example.mvvm.databinding.ActivityRegistroBinding
+import com.example.mvvm.ui.BookModel.BookModelView
+import com.example.mvvm.ui.MainActivity
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class Registro : AppCompatActivity() {
@@ -17,21 +25,24 @@ class Registro : AppCompatActivity() {
     private val usuarios = Usernames.userList
     private lateinit var usuarioDao : UsuarioEntityDao;
     private lateinit var db : UsuarioEntityDataBase
+    private val viewModel: BookModelView by viewModels()
+    private var result = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegistroBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        registerLiveData()
+
         db = UsuarioEntityDataBase.getDatabase(applicationContext)
         usuarioDao = db.usuarioEntityDao()
-
+        binding.progressBar.isVisible = false
         binding.btnCrear.setOnClickListener {
             crearUsuario()
         }
         binding.textView.setOnClickListener {
             startActivity(Intent(this, Login::class.java))
-            //Animatoo.animateSwipeLeft(this)
         }
     }
 
@@ -77,7 +88,6 @@ class Registro : AppCompatActivity() {
         }
     }
 
-
     private fun validarCampoContrasenna(): Boolean {
         val contraseña = binding.edtContrasenna.text.toString()
         val repetirContraseña = binding.edtRepeatPassword.text.toString()
@@ -107,7 +117,6 @@ class Registro : AppCompatActivity() {
         return validateName && validateSecondName && validateUsername && validatePassword
     }
 
-
     private fun crearUsuario() {
         if (!validarCampos()) {
             return
@@ -117,14 +126,27 @@ class Registro : AppCompatActivity() {
         val username =binding.edtNombreUsuario.text.toString().trim()
         val password =binding.edtContrasenna.text.toString()
 
-        GlobalScope.launch {
-            val nuevoUsuario = UsuarioEntity(name = nombre, secondname = apellidos,username = username, password = password)
+        GlobalScope.launch(Dispatchers.Main) {
 
-            usuarioDao.insertUser(nuevoUsuario)
-
-            startActivity(Intent(this@Registro, Login::class.java))
+            viewModel.registrarUsuario(username, password, nombre, "1")
+            delay(2000)
+            if (result == "ok") {
+                Toast.makeText(this@Registro, "añadido", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this@Registro, Login::class.java))
+            }
         }
+    }
+    private fun registerLiveData() {
+        viewModel.registroLiveData.observe(
+            this, {
+                    myComic-> result = myComic.result
+            }
+        )
 
-        //Animatoo.animateSwipeLeft(this)
+        viewModel.progressBarLiveData.observe(
+            this, {
+                    visible-> binding.progressBar.isVisible = false
+            }
+        )
     }
 }
