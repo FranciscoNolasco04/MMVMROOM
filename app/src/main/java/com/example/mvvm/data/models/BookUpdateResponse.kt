@@ -6,5 +6,4 @@ package com.example.mvvm.data.models
 data class BookUpdateResponse (
         val result: String,
         val file_img : String
-
 )

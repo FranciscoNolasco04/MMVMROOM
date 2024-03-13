@@ -32,7 +32,7 @@ class BookService() {
         val token = sharedPrefs.getString("preferenciasToken", "NO TOKEN")
 
         try {
-            Toast.makeText(MyApplication.context, book.toString(), Toast.LENGTH_LONG).show()
+            //Toast.makeText(MyApplication.context, book.toString(), Toast.LENGTH_LONG).show()
             val bookAdd = BookAddRequest(book.id_usuario,book.nombre,book.descripcion,book.imagen)
             val response = InstanceRetrofit.retrofitService.addBook(token!!, bookAdd)
             if (response.isSuccessful) {
@@ -52,15 +52,16 @@ class BookService() {
         try {
             val bookUpdate = BookAddRequest(book.id_usuario, book.nombre, book.descripcion, book.imagen)
             val response = InstanceRetrofit.retrofitService.updateBook(token!!, bookUpdate,idBook)
-            Toast.makeText(MyApplication.context, "Error al actualizar el libro" + response.message(), Toast.LENGTH_SHORT).show()
+            //Toast.makeText(MyApplication.context, "Error al actualizar el libro" + response.message(), Toast.LENGTH_SHORT).show()
             if (response.isSuccessful) {
-                return response.body()
+                    return response.body()
+
             } else {
-                Toast.makeText(MyApplication.context, "Error al actualizar el libro" + response.message(), Toast.LENGTH_SHORT).show()
+                Toast.makeText(MyApplication.context, "Error al actualizar el libro7" + response.message(), Toast.LENGTH_SHORT).show()
             }
 
         } catch (e: Exception) {
-            Toast.makeText(MyApplication.context, "No se ha podido actualizar el libro", Toast.LENGTH_SHORT).show()
+            Toast.makeText(MyApplication.context, "No se ha podido actualizar el libro"+e.message, Toast.LENGTH_LONG).show()
         }
         return null;
     }
@@ -72,12 +73,9 @@ class BookService() {
         try {
             val response = InstanceRetrofit.retrofitService.deleteBook(token!!, idLibro)
             if (!response.isSuccessful) {
-                // Manejar la respuesta si la solicitud no fue exitosa
-                // Puedes mostrar un mensaje de error, registrar el error, etc.
+
             }
         } catch (e: Exception) {
-            // Manejar la excepción si ocurre un error durante la solicitud
-            // Puedes mostrar un mensaje de error, registrar el error, etc.
         }
     }
 

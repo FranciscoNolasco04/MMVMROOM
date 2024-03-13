@@ -24,6 +24,7 @@ import com.example.mvvm.data.MyApplication
 import com.example.mvvm.data.models.Book
 import com.example.mvvm.data.models.BookRepositoryDao
 import com.example.mvvm.ui.BookModel.BookModelView
+import kotlinx.coroutines.delay
 import java.io.ByteArrayOutputStream
 
 
@@ -43,7 +44,6 @@ class DialogoEditar(private val bookModelView: BookModelView, private val positi
         view.findViewById<TextView>(R.id.customDialogTitle).text = "Editar Libro"
         editTextNombre.setText(hotel.nombre)
         editTextEdad.setText(hotel.descripcion)
-
         imageView = view.findViewById(R.id.imageView)
 
         val btnCamara = view.findViewById<ImageButton>(R.id.buttonSeleccionarImagen)

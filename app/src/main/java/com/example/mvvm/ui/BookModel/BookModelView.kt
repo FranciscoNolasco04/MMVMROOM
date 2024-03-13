@@ -39,9 +39,7 @@ class BookModelView : ViewModel() {
     fun updateBook(position: Int,nombre: String, edad: String, imageUrl: String?,repositoryDao1: BookRepositoryDao,libroID : String) {
         viewModelScope.launch {
             val updateItemCase = UpdateItem(repositoryDao1,position, nombre, edad, imageUrl, libroID)
-            viewModelScope.launch {
-                bookListLiveData.value =updateItemCase()
-            }
+            bookListLiveData.value =updateItemCase()
         }
     }
     fun searchByComic(email: String, password: String){

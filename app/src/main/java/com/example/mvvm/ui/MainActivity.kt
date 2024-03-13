@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         var token = shared.getString("preferenciasToken","NO TOKEN");
         val imagen = shared.getString("preferenciasImagen","NO IMAGEN");
         val id = shared.getString(" preferenciasIdUsuario","NO ID");
-        Toast.makeText(this,token,Toast.LENGTH_LONG)
+        //Toast.makeText(this,token,Toast.LENGTH_LONG)
 
 
 

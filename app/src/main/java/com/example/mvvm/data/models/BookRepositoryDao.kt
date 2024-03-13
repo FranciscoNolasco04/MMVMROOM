@@ -62,19 +62,19 @@ class BookRepositoryDao() : BookRepositoryInterface{
         val id = sharedPrefs.getString("preferenciasIdUsuario", "NO id")
         var idBook = Repository.books[pos].id
         var updatedBook = Book(libroID,id!!,nombre, descripcion , imagenUrl)
-       // Repository.books[pos] = updatedBook
-            try {
-                var response = bookService.updateBook(updatedBook,idBook)
-                if (response?.result == "ok actualizacion"){
-                    var lista = Repository.books
-                    updatedBook.imagen = response.file_img
-                    lista.set(pos,updatedBook)
-                    booksLiveData.value = lista
-                    Repository.books = lista
-                }
-            }catch (e: Exception){
-                Toast.makeText(MyApplication.context,"No se ha podido añadir",Toast.LENGTH_SHORT)
+        // Repository.books[pos] = updatedBook
+        try {
+            var response = bookService.updateBook(updatedBook,idBook)
+            if (response?.result == "ok actualizacion"){
+                var lista = Repository.books
+                updatedBook.imagen = response.file_img
+                lista.set(pos,updatedBook)
+                booksLiveData.value = lista
+                Repository.books = lista
             }
+        }catch (e: Exception){
+            Toast.makeText(MyApplication.context,"No se ha podido añadir",Toast.LENGTH_SHORT)
+        }
 
 
         return Repository.books

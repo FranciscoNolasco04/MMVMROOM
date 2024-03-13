@@ -61,6 +61,7 @@ class DialogoAnnadir(private val repositoryDao: BookRepositoryDao,private val bo
                 val imageView = view.findViewById<ImageView>(R.id.imageView)
 
                 val imageUrl = base64
+
                 Glide.with(this)
                     .load(imageUrl)
                     .placeholder(R.drawable.placeholder_image)

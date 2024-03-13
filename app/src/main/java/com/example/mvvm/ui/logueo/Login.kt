@@ -86,8 +86,8 @@ class Login : AppCompatActivity() {
                     val intent = Intent(this@Login, MainActivity::class.java)
                     //intent.putExtra("username", user)
                     startActivity(intent)
-                    Toast.makeText(this@Login, token, Toast.LENGTH_LONG).show()
-                    Toast.makeText(this@Login, id, Toast.LENGTH_LONG).show()
+                    //Toast.makeText(this@Login, token, Toast.LENGTH_LONG).show()
+                  //  Toast.makeText(this@Login, id, Toast.LENGTH_LONG).show()
 
 
             } else {
